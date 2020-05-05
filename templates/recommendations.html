@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Personalized Recommendations</title>
+{% endblock %}
+
+{% block body %}
+<div class = "content">
+    <h1>Recommendations List for ID {{ userid }}</h1>
+    <a href = "/">Back</a>
+    <p class = "rec_list">
+        {% for x in personal %}
+            <em><a href = {{ x[2] }} style = "text-decoration:none;" target = "_blank">{{ x[0] }}</em>
+            <strong style = "color:green"> - MovieID {{ x[1] }}</strong></a><br />
+        {% endfor %}
+    </p>
+    <a href = "/">Back</a>
+</div>
+{% endblock %}

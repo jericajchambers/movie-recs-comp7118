@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Movie Recommendations</title>
+{% endblock %}
+
+{% block body %}
+<div class = "content">
+    <h1>Movie Recommendations</h1>
+    <form action = "/" method = "post">
+        {% if error != "" %} <p style = "color:red;">{{ error }}</p> {% endif %}
+        <h2>Step 1</h2>
+        <label for = "userid">Enter your User ID number:</label><br />
+        <input type = "text" name = "userid" />
+        <br /><br />
+        <h2>Step 2</h2>
+        <a href = "/idlist" target = "_blank">Click Here If You Need the ID of A Movie</a><br /><br />
+        <label for = "rec">Enter A Movie ID Number To Find Out If You'll Like It:</label><br />
+        <input type = "text" name = "movieid" />
+        <input type = "submit" value = "Predict Rating" name = "rec" /><br />
+        <input type = "text" name = "rating" placeholder = {{ rating if rating|float <= 5.00 else 5.00 }} readonly />
+        <input type = "submit" value = "Clear" name = "rec" />
+        {% if rating is number and rating < threshold %}
+            <p style = "color:red;"> {{ message1 }}<a href = {{ link }} style = "text-decoration: none;" target = "_blank">{{ title }}</a>{{ message2 }}</p>
+        {% elif rating is number and rating >= 3.5 %}
+            <p style = "color:green;">{{ message1 }}<a href = {{ link }} style = "text-decoration: none;" target = "_blank">{{ title }}</a>{{ message2 }}</p>
+        {% endif %}
+        <h3>OR</h3>
+        <input type = "submit" value = "Get A Personalized Movie Recommendation List" name = "rec"/>
+    </form>
+</div>
+{% endblock %}

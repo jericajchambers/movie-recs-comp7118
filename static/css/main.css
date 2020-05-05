@@ -1,0 +1,44 @@
+body {
+    background-color: #F8F8F8;
+}
+
+.content {
+    margin: auto;
+    width: 75%;
+    padding: 10px;
+    text-align: center;
+}
+
+.content table, th, tr, td {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.content form {
+    padding: 10px;
+}
+
+.rec_list a:hover {
+    color:green;
+}
+
+.content input[type=submit] {
+	padding: 10px 10px;
+	text-align: center;
+	display: inline-block;
+	font-size: 14px;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.content input[type=text] 
+{
+    padding: 10px 10px;
+	border: 1px solid black;
+    border-radius: 4px;	
+    width: 100px;
+}
